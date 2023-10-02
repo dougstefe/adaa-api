@@ -1,6 +1,8 @@
-import 'reflect-metadata'
+import { app } from '@main/config/app'
+import { Settings } from '@main/config/settings'
 
-import('./main/config/app').then((result) => {
-  const app = result.default
-  app.listen(5050, () => console.log(`Server running at http://localhost:5050`))
-})
+const settings = new Settings()
+
+const { port } = settings.get()
+
+app.listen(port, () => console.log(`Server running at http://localhost:5050`))

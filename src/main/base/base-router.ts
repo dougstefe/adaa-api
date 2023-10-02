@@ -1,5 +1,6 @@
-import { ApiResponse } from '../types/api-response'
-import { RouteOptions } from '../types/route-options'
+import { ApiResponse } from '@main/types/api-response'
+import { ApiResponseStatus } from '@main/types/api-response-status'
+import { RouteOptions } from '@main/types/route-options'
 import { NextFunction, Router, Request, Response } from 'express'
 
 export abstract class BaseRouter {
@@ -24,7 +25,17 @@ export abstract class BaseRouter {
         res,
         next
       )) as ApiResponse<unknown>
-      res.status(result.code).send(result)
+      const response = res.status(result.code)
+
+      if (result.status == ApiResponseStatus.Success) {
+        response.send(result.data)
+      }
+      else if (result.status == ApiResponseStatus.Error) {
+        response.send(result)
+      }
+      else {
+        response.send()
+      }
     }
 
     if (middlewares) {

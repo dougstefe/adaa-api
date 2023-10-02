@@ -1,12 +1,14 @@
+import { AuthorizationError } from '@main/errors/http/authorization-error'
 import { ApiResponse } from '../types/api-response'
 import { ApiResponseStatus } from '../types/api-response-status'
 import { NextFunction, Response, Request } from 'express'
+import { ResponseError } from '@main/errors/http/response-error'
 
 export abstract class BaseController<Resource> {
 
   abstract handleRequest(req: Request, res: Response, next: NextFunction): Promise<ApiResponse<Resource>>
 
-  protected responseSuccess(data: Resource): ApiResponse<Resource> {
+  protected ok(data: Resource): ApiResponse<Resource> {
     return {
       code: 200,
       status: ApiResponseStatus.Success,
@@ -14,20 +16,21 @@ export abstract class BaseController<Resource> {
     }
   }
 
-  protected responseError(error: Error): ApiResponse<Resource> {
+  protected created(data: Resource): ApiResponse<Resource> {
     return {
-      code: 400,
-      status: ApiResponseStatus.Error,
-      message: error.message || `${error}`,
-      stack: error.stack || '',
+      code: 201,
+      status: ApiResponseStatus.Success,
+      data: data,
     }
   }
 
-  protected responseQueued(): ApiResponse<Resource> {
+  protected error(error: ResponseError): ApiResponse<Resource> {
+    const message = error.message || JSON.stringify(error)
     return {
-      code: 202,
-      status: ApiResponseStatus.Queued,
-      message: 'Resource queued.',
+      code: error.code || 500,
+      status: ApiResponseStatus.Error,
+      message,
+      stack: error.stack || '',
     }
   }
 }

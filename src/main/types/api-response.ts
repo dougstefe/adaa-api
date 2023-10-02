@@ -1,4 +1,4 @@
-import { ApiResponseStatus } from './api-response-status'
+import { ApiResponseStatus } from '@main/types/api-response-status'
 
 export interface ApiResponse<Resource> {
   code: number,
