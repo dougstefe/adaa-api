@@ -1,5 +1,5 @@
 import { BaseController } from '@main/base/base-controller'
-import { HttpMethod } from './http-method'
+import { HttpMethod } from '@main/types/http-method'
 
 export interface RouteOptions {
   path: string,

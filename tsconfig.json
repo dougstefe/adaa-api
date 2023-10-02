@@ -1,10 +1,14 @@
 {
+    "ts-node": {
+        "require": ["tsconfig-paths/register"]
+    },
     "compilerOptions": {
         "target": "es2020",
         "module": "commonjs",
         "outDir": "dist",
         "rootDir": "src",
         "baseUrl": "src",
+        "sourceMap": true,
         "forceConsistentCasingInFileNames": true,
         "esModuleInterop": true,
         "experimentalDecorators": true,
@@ -13,9 +17,10 @@
         "paths": {
             "@domain/*": ["domain/*"],
             "@infra/*": ["infra/*"],
+            "@main/*": ["main/*"],
             "@presentation/*": ["presentation/*"],
-            "@data/*": ["data/*"],
-            "@main/*": ["main/*"]
+            "@shared/*": ["shared/*"]
         }
-    }
+    },
+    "include": ["src/**/*"]
 }
