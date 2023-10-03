@@ -21,6 +21,5 @@
             "@presentation/*": ["presentation/*"],
             "@shared/*": ["shared/*"]
         }
-    },
-    "include": ["src/**/*"]
+    }
 }
