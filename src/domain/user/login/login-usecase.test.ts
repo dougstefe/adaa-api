@@ -69,7 +69,7 @@ const makeSut = (): SutTypes => {
 }
 
 describe('Login UseCase', () => {
-  test('Should call GetUserByEmailRepository', async () => {
+  test('Should calls GetUserByEmailRepository', async () => {
     const { sut, getUserByEmailRepositoryStub } = makeSut()
     const fakeLoginRequest = makeFakeLoginRequest()
     const getUserByEmailSpy = jest.spyOn(getUserByEmailRepositoryStub, 'getUserByEmail')
@@ -77,5 +77,16 @@ describe('Login UseCase', () => {
     await sut.execute(fakeLoginRequest)
 
     expect(getUserByEmailSpy).toHaveBeenCalledWith(fakeLoginRequest.email)
+  })
+
+  test('Should calls CompareHash', async () => {
+    const { sut, compareHashStub } = makeSut()
+    const fakeLoginRequest = makeFakeLoginRequest()
+    const userFake = makeFakeUser()
+    const compareSpy = jest.spyOn(compareHashStub, 'compare')
+
+    await sut.execute(fakeLoginRequest)
+
+    expect(compareSpy).toHaveBeenCalledWith(fakeLoginRequest.password, userFake.password)
   })
 })
