@@ -111,4 +111,15 @@ describe('Login UseCase', () => {
 
     expect(genetareTokenSpy).toHaveBeenCalledWith(userFake)
   })
+
+  test('Should not calls GenerateToken', async () => {
+    const { sut, compareHashStub, generateTokenStub } = makeSut()
+    const fakeLoginRequest = makeFakeLoginRequest()
+    jest.spyOn(compareHashStub, 'compare').mockResolvedValueOnce(Promise.resolve(false))
+    const genetareTokenSpy = jest.spyOn(generateTokenStub, 'genetareToken')
+
+    await sut.execute(fakeLoginRequest)
+
+    expect(genetareTokenSpy).toBeCalledTimes(0)
+  })
 })
