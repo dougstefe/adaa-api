@@ -89,4 +89,15 @@ describe('Login UseCase', () => {
 
     expect(compareSpy).toHaveBeenCalledWith(fakeLoginRequest.password, userFake.password)
   })
+
+  test('Should not calls CompareHash', async () => {
+    const { sut, getUserByEmailRepositoryStub, compareHashStub } = makeSut()
+    const fakeLoginRequest = makeFakeLoginRequest()
+    jest.spyOn(getUserByEmailRepositoryStub, 'getUserByEmail').mockReturnValueOnce(null as User)
+    const compareSpy = jest.spyOn(compareHashStub, 'compare')
+
+    await sut.execute(fakeLoginRequest)
+
+    expect(compareSpy).toBeCalledTimes(0)
+  })
 })
