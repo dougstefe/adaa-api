@@ -122,4 +122,18 @@ describe('Login UseCase', () => {
 
     expect(genetareTokenSpy).toBeCalledTimes(0)
   })
+
+  test('Should returns LoginResponse', async () => {
+    const { sut } = makeSut()
+    const fakeLoginRequest = makeFakeLoginRequest()
+    const userFake = makeFakeUser()
+
+    const response = await sut.execute(fakeLoginRequest)
+
+    const expected = {
+      name: userFake.name,
+      accessToken: 'any_token'
+    }
+    expect(response).toEqual(expected)
+  })
 })
