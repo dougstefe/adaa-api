@@ -12,7 +12,7 @@ export class LoginRepository implements GetUserByEmailRepository {
       password: '$2b$08$VzGFZhJYkaC99Y7Wq9/D5OI6P3L4YKut1tybMa4jd1D5vlYUQ8uRq' //isabella
     }
   ]
-  getUserByEmail(email: string) {
+  getUserByEmail(email: string): User {
     return this.users.find(x => x.email == email)
   }
 

@@ -1,12 +1,11 @@
 import { BaseUseCase } from '@main/base/base-use-case'
 import { LoginRequest } from '@domain/user/login/models/login-request'
-import { LoginResponse } from './models/login-response'
+import { LoginResponse } from '@domain/user/login/models/login-response'
 import { GetUserByEmailRepository } from '@infra/user/login/interfaces/get-user-repository'
-import { GenerateToken } from 'shared/auth/interfaces/generate-token'
-import { CompareHash } from 'shared/criptografy/interfaces/compare-hash'
+import { GenerateToken } from '@shared/auth/interfaces/generate-token'
+import { CompareHash } from '@shared/criptografy/interfaces/compare-hash'
 import { inject, injectable } from 'tsyringe'
 import { tokens } from '@main/di/tokens'
-import { GenerateHash } from '@shared/criptografy/interfaces/generate-hash'
 
 @injectable()
 export class LoginUseCase extends BaseUseCase<LoginRequest, LoginResponse | undefined> {
