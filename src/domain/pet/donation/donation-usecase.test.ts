@@ -45,4 +45,14 @@ describe('Donation UseCase', () => {
 
     expect(addSpyOn).toHaveBeenCalledWith(fakeDonationRequest)
   })
+
+  test('Should throw when AddDonationRepository throws any exception', async () => {
+    const { sut, addDonationRepositoryStub } = makeSut()
+    jest.spyOn(addDonationRepositoryStub, 'add').mockRejectedValueOnce(new Error('any_exception'))
+    const fakeDonationRequest = makeFakeDonationRequest()
+
+    const promise = sut.execute(fakeDonationRequest)
+
+    await expect(promise).rejects.toThrow('any_exception')
+  })
 })

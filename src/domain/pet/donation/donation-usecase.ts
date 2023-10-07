@@ -22,7 +22,7 @@ export class DonationUseCase extends BaseUseCase<DonationRequest, DonationRespon
       observation
     } = input
 
-    this.addDonationRepository.add({
+    await this.addDonationRepository.add({
       animalType,
       color,
       datebirth,
