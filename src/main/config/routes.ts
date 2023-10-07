@@ -1,5 +1,3 @@
-import 'reflect-metadata'
-
 import { BaseRouter } from '@main/base/base-router'
 import { Express } from 'express'
 import { container } from '@main/di/container'
@@ -8,7 +6,8 @@ import { tokens } from '@main/di/tokens'
 export default (app: Express): void => {
 
   const tokenRouters = [
-    tokens.LoginRouter
+    tokens.LoginRouter,
+    tokens.DonationRouter
   ]
 
   for (const token of tokenRouters) {

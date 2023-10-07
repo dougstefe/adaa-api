@@ -5,8 +5,14 @@ export const tokens = {
   LoginUseCase: Symbol('LoginUseCase'),
   LoginRepository: Symbol('LoginRepository'),
 
+  // Donation
+  DonationRouter: Symbol('DonationRouter'),
+  DonationController: Symbol('DonationController'),
+  DonationUseCase: Symbol('DonationUseCase'),
+
   // Main
   Settings: Symbol('Settings'),
+  Authorization: Symbol('Authorization'),
 
   // Shared
   AuthToken: Symbol('AuthToken'),

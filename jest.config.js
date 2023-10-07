@@ -3,7 +3,7 @@ const { compilerOptions } = require('./tsconfig')
 
 module.exports = {
     collectCoverageFrom: [
-      '<rootDir>/src/**/*.ts'
+      '<rootDir>/**/*.ts'
     ],
     coveragePathIgnorePatterns: [
       "index.ts"

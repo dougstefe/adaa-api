@@ -1,22 +1,22 @@
 import { Request } from 'express'
 import { BaseController } from '@main/base/base-controller'
 import { ApiResponse } from '@main/types/api-response'
-import { LoginSuccess } from '@domain/models/login-success'
 import { inject, injectable } from 'tsyringe'
 import { ResponseError } from '@main/errors/http/response-error'
 import { LoginUseCase } from '@domain/user/login/login-usecase'
 import { AuthorizationError } from '@main/errors/http/authorization-error'
 import { tokens } from '@main/di/tokens'
+import { LoginResponse } from '@domain/user/login/models/login-response'
 
 @injectable()
-export class LoginController extends BaseController<LoginSuccess | Error> {
+export class LoginController extends BaseController<LoginResponse | Error> {
   constructor(
     @inject(tokens.LoginUseCase)
     private readonly loginUseCase: LoginUseCase
   ) {
     super()
   }
-  async handleRequest(req: Request): Promise<ApiResponse<LoginSuccess | Error>> {
+  async handleRequest(req: Request): Promise<ApiResponse<LoginResponse | Error>> {
     try {
       const { email, password } = req.body
 

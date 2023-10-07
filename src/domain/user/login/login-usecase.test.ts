@@ -37,8 +37,9 @@ const makeCompareHash = (): CompareHash => {
 
 const makeGetUserByEmailRepository = (): GetUserByEmailRepository => {
   class GetUserByEmailRepositoryStub implements GetUserByEmailRepository {
-    getUserByEmail(_email: string): User {
-      return makeFakeUser()
+    async getUserByEmail(_email: string): Promise<User> {
+      const user = makeFakeUser()
+      return Promise.resolve(user)
     }
   }
   return new GetUserByEmailRepositoryStub()
@@ -93,7 +94,7 @@ describe('Login UseCase', () => {
   test('Should not calls CompareHash', async () => {
     const { sut, getUserByEmailRepositoryStub, compareHashStub } = makeSut()
     const fakeLoginRequest = makeFakeLoginRequest()
-    jest.spyOn(getUserByEmailRepositoryStub, 'getUserByEmail').mockReturnValueOnce(null as User)
+    jest.spyOn(getUserByEmailRepositoryStub, 'getUserByEmail').mockResolvedValueOnce(null as User)
     const compareSpy = jest.spyOn(compareHashStub, 'compare')
 
     await sut.execute(fakeLoginRequest)
