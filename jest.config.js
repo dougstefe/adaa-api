@@ -1,23 +1,21 @@
-const { pathsToModuleNameMapper } = require('ts-jest')
-const { compilerOptions } = require('./tsconfig')
 
 module.exports = {
-    collectCoverageFrom: [
-      '<rootDir>/**/*.ts'
-    ],
-    coveragePathIgnorePatterns: [
-      "index.ts"
-    ],
-    coverageDirectory: 'coverage',
-    testEnvironment: 'node',
-    transform: {
-      '.+\\.ts$': 'ts-jest'
-    },
-    roots: [
-      '<rootDir>'
-    ],
-    setupFiles: ['./jest.setup.ts'],
-    modulePaths: [compilerOptions.baseUrl],
-    moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths)
+  rootDir: 'src',
+  collectCoverageFrom: [
+    '<rootDir>/**/*.ts'
+  ],
+  coverageDirectory: 'coverage',
+  testEnvironment: 'node',
+  transform: {
+    '.+\\.ts$': 'ts-jest'
+  },
+  setupFiles: ['../jest.setup.ts'],
+  moduleNameMapper: {
+    '^@domain/(.*)$': '<rootDir>/domain/$1',
+    '^@infra/(.*)$': '<rootDir>/infra/$1',
+    '^@main/(.*)$': '<rootDir>/main/$1',
+    '^@presentation/(.*)$': '<rootDir>/presentation/$1',
+    '^@shared/(.*)$': '<rootDir>/shared/$1'
   }
+}
   

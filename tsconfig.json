@@ -21,5 +21,11 @@
             "@presentation/*": ["presentation/*"],
             "@shared/*": ["shared/*"]
         }
-    }
+    },
+    "include": [
+        "src"
+    ],
+    "exclude": [
+      "dist"
+    ]
 }
