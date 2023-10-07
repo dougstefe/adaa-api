@@ -20,7 +20,7 @@ export class LoginUseCase extends BaseUseCase<LoginRequest, LoginResponse | unde
     super()
   }
   async execute(request: LoginRequest): Promise<LoginResponse | undefined> {
-    var user = this.getUserByEmailRepository.getUserByEmail(request.email)
+    var user = await this.getUserByEmailRepository.getUserByEmail(request.email)
     if (!user)
       return
 
