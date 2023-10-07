@@ -13,12 +13,22 @@ container.registerSingleton(tokens.Authorization, Authorization)
 import { LoginRouter } from '@presentation/routes/login-router'
 import { LoginController } from '@presentation/controllers/login-controller'
 import { LoginUseCase } from '@domain/user/login/login-usecase'
-import { LoginRepository } from '@infra/user/login/login-repository'
+import { LoginMongoRepository } from '@infra/user/login/login-mongo-repository'
 
 container.registerSingleton(tokens.LoginRouter, LoginRouter)
 container.registerSingleton(tokens.LoginController, LoginController)
 container.registerSingleton(tokens.LoginUseCase, LoginUseCase)
-container.registerSingleton(tokens.LoginRepository, LoginRepository)
+container.registerSingleton(tokens.LoginRepository, LoginMongoRepository)
+
+// Donation
+
+import { DonationRouter } from '@presentation/routes/donation-router'
+import { DonationController } from '@presentation/controllers/donation-controller'
+import { DonationUseCase } from '@domain/pet/donation/donation-usecase'
+
+container.registerSingleton(tokens.DonationRouter, DonationRouter)
+container.registerSingleton(tokens.DonationController, DonationController)
+container.registerSingleton(tokens.DonationUseCase, DonationUseCase)
 
 
 // Main
