@@ -25,8 +25,10 @@ container.registerSingleton(tokens.Settings, Settings)
 
 import { AuthToken } from '@shared/auth/auth-token'
 import { CriptografyHasher } from '@shared/criptografy/criptografy-hasher'
+import { MongoDbClient } from '@shared/db/MongoDbClient'
 
 container.registerSingleton(tokens.AuthToken, AuthToken)
 container.registerSingleton(tokens.CriptografyHasher, CriptografyHasher)
+container.registerSingleton(tokens.MongoDbClient, MongoDbClient)
 
 export { container }

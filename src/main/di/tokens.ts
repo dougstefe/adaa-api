@@ -10,5 +10,6 @@ export const tokens = {
 
   // Shared
   AuthToken: Symbol('AuthToken'),
-  CriptografyHasher: Symbol('CriptografyHasher')
+  CriptografyHasher: Symbol('CriptografyHasher'),
+  MongoDbClient: Symbol('MongoDbClient')
 }
