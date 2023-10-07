@@ -55,4 +55,15 @@ describe('Donation UseCase', () => {
 
     await expect(promise).rejects.toThrow('any_exception')
   })
+
+  test('Should return DonationResponse', async () => {
+    const { sut } = makeSut()
+    const fakeDonationRequest = makeFakeDonationRequest()
+
+    const response = await sut.execute(fakeDonationRequest)
+
+    expect(response).toEqual({
+      id: 'any_id'
+    })
+  })
 })
