@@ -19,7 +19,7 @@ export class AuthToken implements GenerateToken, ValidateToken {
     this.privateKey = secret
   }
 
-  genetareToken(user: User): string {
+  generateToken(user: User): string {
     const {
       email,
       name,
@@ -31,7 +31,10 @@ export class AuthToken implements GenerateToken, ValidateToken {
         name,
         birthdate
       },
-      this.privateKey
+      this.privateKey,
+      {
+        expiresIn: '1h'
+      }
     )
     return token
   }
