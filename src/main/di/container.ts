@@ -13,7 +13,7 @@ container.registerSingleton(tokens.Authorization, Authorization)
 import { LoginRouter } from '@presentation/routes/login-router'
 import { LoginController } from '@presentation/controllers/login-controller'
 import { LoginUseCase } from '@domain/user/login/login-usecase'
-import { LoginMongoRepository } from '@infra/user/login/login-mongo-repository'
+import { LoginMongoRepository } from '@domain/user/login/infra/login-mongo-repository'
 
 container.registerSingleton(tokens.LoginRouter, LoginRouter)
 container.registerSingleton(tokens.LoginController, LoginController)

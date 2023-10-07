@@ -1,4 +1,4 @@
-import { GetUserByEmailRepository } from '@infra/user/login/interfaces/get-user-repository'
+import { GetUserByEmailRepository } from '@domain/user/login/infra/interfaces/get-user-repository'
 import { LoginUseCase } from './login-usecase'
 import { User } from './models/user'
 import { GenerateToken } from '@shared/auth/interfaces/generate-token'
@@ -19,7 +19,7 @@ const makeFakeUser = (): User => ({
 
 const makeGenerateToken = (): GenerateToken => {
   class GenerateTokenStub implements GenerateToken {
-    genetareToken(_user: User): string {
+    generateToken(_user: User): string {
       return 'any_token'
     }
   }
@@ -106,7 +106,7 @@ describe('Login UseCase', () => {
     const { sut, generateTokenStub } = makeSut()
     const fakeLoginRequest = makeFakeLoginRequest()
     const userFake = makeFakeUser()
-    const genetareTokenSpy = jest.spyOn(generateTokenStub, 'genetareToken')
+    const genetareTokenSpy = jest.spyOn(generateTokenStub, 'generateToken')
 
     await sut.execute(fakeLoginRequest)
 
@@ -117,7 +117,7 @@ describe('Login UseCase', () => {
     const { sut, compareHashStub, generateTokenStub } = makeSut()
     const fakeLoginRequest = makeFakeLoginRequest()
     jest.spyOn(compareHashStub, 'compare').mockResolvedValueOnce(Promise.resolve(false))
-    const genetareTokenSpy = jest.spyOn(generateTokenStub, 'genetareToken')
+    const genetareTokenSpy = jest.spyOn(generateTokenStub, 'generateToken')
 
     await sut.execute(fakeLoginRequest)
 
