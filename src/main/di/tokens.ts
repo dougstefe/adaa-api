@@ -7,6 +7,7 @@ export const tokens = {
 
   // Main
   Settings: Symbol('Settings'),
+  Authorization: Symbol('Authorization'),
 
   // Shared
   AuthToken: Symbol('AuthToken'),

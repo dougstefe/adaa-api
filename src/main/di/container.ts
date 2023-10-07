@@ -2,6 +2,12 @@ import { container as baseContainer } from 'tsyringe'
 import { tokens } from '@main/di/tokens'
 const container = baseContainer.createChildContainer()
 
+// Middlewares
+
+import { Authorization } from '@presentation/middlewares/authorize'
+
+container.registerSingleton(tokens.Authorization, Authorization)
+
 // Login
 
 import { LoginRouter } from '@presentation/routes/login-router'
