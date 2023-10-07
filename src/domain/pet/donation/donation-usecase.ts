@@ -22,7 +22,7 @@ export class DonationUseCase extends BaseUseCase<DonationRequest, DonationRespon
       observation
     } = input
 
-    await this.addDonationRepository.add({
+    const id = await this.addDonationRepository.add({
       animalType,
       color,
       datebirth,
@@ -30,7 +30,7 @@ export class DonationUseCase extends BaseUseCase<DonationRequest, DonationRespon
       observation
     })
 
-    return
+    return { id }
   }
 
 }
