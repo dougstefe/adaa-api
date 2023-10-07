@@ -1,3 +1,4 @@
+import { container } from '@main/di/container'
 import { tokens } from '@main/di/tokens'
 import { AuthorizationError } from '@main/errors/http/authorization-error'
 import { ApiResponseStatus } from '@main/types/api-response-status'
@@ -7,12 +8,7 @@ import { inject, injectable } from 'tsyringe'
 
 @injectable()
 export class Authorization {
-  constructor(
-    @inject(tokens.AuthToken)
-    private readonly token: ValidateToken
-  ) {
-    console.log(token)
-  }
+
   async authorize(
     req: Request,
     res: Response,
@@ -23,9 +19,8 @@ export class Authorization {
       if (!accessToken)
         throw new AuthorizationError('Undefined token.')
 
-      const user = this.token.validateToken(accessToken)
-      if (!user)
-        throw new AuthorizationError('Invalid token.')
+      const token = container.resolve(tokens.AuthToken) as ValidateToken
+      const user = token.validateToken(accessToken)
 
       res.locals.user = user
 
