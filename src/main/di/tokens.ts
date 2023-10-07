@@ -9,6 +9,7 @@ export const tokens = {
   DonationRouter: Symbol('DonationRouter'),
   DonationController: Symbol('DonationController'),
   DonationUseCase: Symbol('DonationUseCase'),
+  DonationRepository: Symbol('DonationRepository'),
 
   // Main
   Settings: Symbol('Settings'),
