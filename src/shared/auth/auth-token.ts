@@ -1,4 +1,4 @@
-import { User } from '@domain/user/models/user'
+import { User } from '@domain/user/entities/user'
 import { GenerateToken } from './interfaces/generate-token'
 import { ValidateToken } from './interfaces/validate-token'
 import { sign, verify } from 'jsonwebtoken'
@@ -21,15 +21,15 @@ export class AuthToken implements GenerateToken, ValidateToken {
 
   generateToken(user: User): string {
     const {
+      id,
       email,
-      name,
-      birthdate
+      name
     } = user
     const token: string = sign(
       {
+        id,
         email,
-        name,
-        birthdate
+        name
       },
       this.privateKey,
       {

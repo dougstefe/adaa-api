@@ -14,11 +14,13 @@ import { LoginRouter } from '@presentation/routes/login-router'
 import { LoginController } from '@presentation/controllers/login-controller'
 import { LoginUseCase } from '@domain/user/use-cases/login/login-usecase'
 import { LoginMongoRepository } from '@domain/user/infra/login-mongo-repository'
+import { UserMapper } from '@domain/user/infra/user-mapper'
 
 container.registerSingleton(tokens.LoginRouter, LoginRouter)
 container.registerSingleton(tokens.LoginController, LoginController)
 container.registerSingleton(tokens.LoginUseCase, LoginUseCase)
 container.registerSingleton(tokens.LoginRepository, LoginMongoRepository)
+container.registerSingleton(tokens.UserMapper, UserMapper)
 
 // Donation
 

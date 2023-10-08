@@ -4,6 +4,7 @@ export const tokens = {
   LoginController: Symbol('LoginController'),
   LoginUseCase: Symbol('LoginUseCase'),
   LoginRepository: Symbol('LoginRepository'),
+  UserMapper: Symbol('UserMapper'),
 
   // Donation
   DonationRouter: Symbol('DonationRouter'),
