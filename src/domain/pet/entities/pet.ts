@@ -1,7 +1,7 @@
-import { AnimalType } from '@domain/shared/models/animal-type'
+import { PetType } from '@domain/shared/models/pet-type'
 
-export interface Donation {
-  animalType: AnimalType,
+export interface Pet {
+  type: PetType,
   color: string,
   datebirth: Date,
   name: string,

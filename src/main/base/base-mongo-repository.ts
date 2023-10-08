@@ -27,7 +27,6 @@ export abstract class BaseMongoRepository<Entity> {
   protected async find(filters: Filter<any>): Promise<WithId<Entity> | null> {
     const collection = await this.getCollection()
     const document = await collection.findOne<WithId<Entity>>(filters)
-    console.log(document)
     return document
   }
 

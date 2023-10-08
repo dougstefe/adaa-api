@@ -1,26 +1,26 @@
-import { DonationUseCase } from '@domain/donation/use-cases/add/donation-usecase'
-import { DonationResponse } from '@domain/donation/use-cases/add/donation-response'
+import { AddPetUseCase } from '@domain/pet/use-cases/add/add-pet-usecase'
 import { BaseController } from '@main/base/base-controller'
 import { tokens } from '@main/di/tokens'
 import { ResponseError } from '@main/errors/http/response-error'
 import { ApiResponse } from '@main/types/api-response'
 import { inject, injectable } from 'tsyringe'
 import { Request, Response } from 'express'
+import { AddPetResponse } from '@domain/pet/use-cases/add/add-pet-response'
 
 @injectable()
-export class DonationController extends BaseController<DonationResponse | Error> {
+export class AddPetController extends BaseController<AddPetResponse | Error> {
 
   constructor(
-    @inject(tokens.DonationUseCase)
-    private readonly donationUseCase: DonationUseCase
+    @inject(tokens.AddPetUseCase)
+    private readonly useCase: AddPetUseCase
   ) {
     super()
   }
 
-  async handleRequest(req: Request, res: Response): Promise<ApiResponse<DonationResponse | Error>> {
+  async handleRequest(req: Request, res: Response): Promise<ApiResponse<AddPetResponse | Error>> {
     try {
       const {
-        animalType,
+        type,
         color,
         datebirth,
         name,
@@ -34,8 +34,8 @@ export class DonationController extends BaseController<DonationResponse | Error>
         name: userName
       } = res.locals.user
 
-      var response = await this.donationUseCase.execute({
-        animalType,
+      var response = await this.useCase.execute({
+        type,
         color,
         datebirth,
         name,

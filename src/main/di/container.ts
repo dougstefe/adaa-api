@@ -13,26 +13,26 @@ container.registerSingleton(tokens.Authorization, Authorization)
 import { LoginRouter } from '@presentation/routes/login-router'
 import { LoginController } from '@presentation/controllers/login-controller'
 import { LoginUseCase } from '@domain/user/use-cases/login/login-usecase'
-import { LoginMongoRepository } from '@domain/user/infra/login-mongo-repository'
+import { UserMongoRepository } from '@domain/user/infra/user-mongo-repository'
 import { UserMapper } from '@domain/user/infra/user-mapper'
 
 container.registerSingleton(tokens.LoginRouter, LoginRouter)
 container.registerSingleton(tokens.LoginController, LoginController)
 container.registerSingleton(tokens.LoginUseCase, LoginUseCase)
-container.registerSingleton(tokens.LoginRepository, LoginMongoRepository)
+container.registerSingleton(tokens.LoginRepository, UserMongoRepository)
 container.registerSingleton(tokens.UserMapper, UserMapper)
 
-// Donation
+// Add Pet
 
-import { DonationRouter } from '@presentation/routes/donation-router'
-import { DonationController } from '@presentation/controllers/donation-controller'
-import { DonationUseCase } from '@domain/donation/use-cases/add/donation-usecase'
-import { DonationMongoRepository } from '@domain/donation/infra/donation-mongo-repository'
+import { AddPetRouter } from '@presentation/routes/add-pet-router'
+import { AddPetController } from '@presentation/controllers/add-pet-controller'
+import { AddPetUseCase } from '@domain/pet/use-cases/add/add-pet-usecase'
+import { PetMongoRepository } from '@domain/pet/infra/pet-mongo-repository'
 
-container.registerSingleton(tokens.DonationRouter, DonationRouter)
-container.registerSingleton(tokens.DonationController, DonationController)
-container.registerSingleton(tokens.DonationUseCase, DonationUseCase)
-container.registerSingleton(tokens.DonationRepository, DonationMongoRepository)
+container.registerSingleton(tokens.AddPetRouter, AddPetRouter)
+container.registerSingleton(tokens.AddPetController, AddPetController)
+container.registerSingleton(tokens.AddPetUseCase, AddPetUseCase)
+container.registerSingleton(tokens.PetRepository, PetMongoRepository)
 
 
 // Main

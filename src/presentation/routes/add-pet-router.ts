@@ -1,15 +1,15 @@
 import { BaseRouter } from '@main/base/base-router'
 import { tokens } from '@main/di/tokens'
 import { HttpMethod } from '@main/types/http-method'
-import { DonationController } from '@presentation/controllers/donation-controller'
+import { AddPetController } from '@presentation/controllers/add-pet-controller'
 import { Authorization } from '@presentation/middlewares/authorize'
 import { inject, injectable } from 'tsyringe'
 
 @injectable()
-export class DonationRouter extends BaseRouter {
+export class AddPetRouter extends BaseRouter {
   constructor(
-    @inject(tokens.DonationController)
-    private donationController: DonationController,
+    @inject(tokens.AddPetController)
+    private controller: AddPetController,
     @inject(tokens.Authorization)
     private authorization: Authorization
   ) {
@@ -19,9 +19,9 @@ export class DonationRouter extends BaseRouter {
 
   protected async setupRoutes() {
     this.registerRoute({
-      path: '/v1/donation',
+      path: '/v1/pets',
       method: HttpMethod.Post,
-      handler: this.donationController,
+      handler: this.controller,
       middlewares: [
         this.authorization.authorize
       ],

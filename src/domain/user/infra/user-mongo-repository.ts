@@ -7,7 +7,7 @@ import { MongoDbClient } from '@shared/db/MongoDbClient'
 import { UserMapper } from './user-mapper'
 
 @injectable()
-export class LoginMongoRepository extends BaseMongoRepository<User> implements GetUserByEmailRepository {
+export class UserMongoRepository extends BaseMongoRepository<User> implements GetUserByEmailRepository {
 
   protected collectionName = 'users'
 

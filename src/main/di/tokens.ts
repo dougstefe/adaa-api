@@ -6,11 +6,11 @@ export const tokens = {
   LoginRepository: Symbol('LoginRepository'),
   UserMapper: Symbol('UserMapper'),
 
-  // Donation
-  DonationRouter: Symbol('DonationRouter'),
-  DonationController: Symbol('DonationController'),
-  DonationUseCase: Symbol('DonationUseCase'),
-  DonationRepository: Symbol('DonationRepository'),
+  // Add Pet
+  AddPetRouter: Symbol('AddPetRouter'),
+  AddPetController: Symbol('AddPetController'),
+  AddPetUseCase: Symbol('AddPetUseCase'),
+  PetRepository: Symbol('PetRepository'),
 
   // Main
   Settings: Symbol('Settings'),
