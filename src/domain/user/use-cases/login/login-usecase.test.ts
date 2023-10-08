@@ -1,9 +1,9 @@
-import { GetUserByEmailRepository } from '@domain/user/login/infra/interfaces/get-user-repository'
-import { LoginUseCase } from './login-usecase'
-import { User } from './models/user'
+import { User } from '@domain/user/entities/user'
 import { GenerateToken } from '@shared/auth/interfaces/generate-token'
 import { CompareHash } from '@shared/criptografy/interfaces/compare-hash'
-import { LoginRequest } from './models/login-request'
+import { LoginRequest } from './login-request'
+import { GetUserByEmailRepository } from './get-user-repository'
+import { LoginUseCase } from './login-usecase'
 
 const makeFakeLoginRequest = (): LoginRequest => ({
   email: 'any@email.com',

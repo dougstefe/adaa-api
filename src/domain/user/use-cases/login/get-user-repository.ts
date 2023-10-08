@@ -1,4 +1,4 @@
-import { User } from '@domain/user/login/models/user'
+import { User } from '@domain/user/entities/user'
 
 export interface GetUserByEmailRepository {
   getUserByEmail(email: string): Promise<User>

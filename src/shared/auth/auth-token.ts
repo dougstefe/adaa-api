@@ -1,4 +1,4 @@
-import { User } from '@domain/user/login/models/user'
+import { User } from '@domain/user/models/user'
 import { GenerateToken } from './interfaces/generate-token'
 import { ValidateToken } from './interfaces/validate-token'
 import { sign, verify } from 'jsonwebtoken'

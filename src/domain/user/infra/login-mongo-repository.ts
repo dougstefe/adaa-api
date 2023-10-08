@@ -1,5 +1,5 @@
-import { User } from '@domain/user/login/models/user'
-import { GetUserByEmailRepository } from './interfaces/get-user-repository'
+import { User } from '@domain/user/entities/user'
+import { GetUserByEmailRepository } from '@domain/user/use-cases/login/get-user-repository'
 import { inject, injectable } from 'tsyringe'
 import { BaseMongoRepository } from '@main/base/base-mongo-repository'
 import { tokens } from '@main/di/tokens'

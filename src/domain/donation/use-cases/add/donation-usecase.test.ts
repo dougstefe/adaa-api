@@ -1,8 +1,8 @@
-import { DonationUseCase } from '@domain/donation/donation-usecase'
-import { DonationRequest } from './models/donation-request'
+import { DonationUseCase } from '@domain/donation/use-cases/add/donation-usecase'
 import { AnimalType } from '@domain/shared/models/animal-type'
-import { AddDonationRepository } from './infra/interfaces/add-donation-repository'
-import { Donation } from './models/donation'
+import { Donation } from '@domain/donation/entities/donation'
+import { DonationRequest } from './donation-request'
+import { AddDonationRepository } from './add-donation-repository'
 
 const makeFakeDonationRequest = (): DonationRequest => ({
   animalType: AnimalType.dog,

@@ -1,4 +1,4 @@
-import { Donation } from '@domain/donation/add/models/donation'
+import { Donation } from '@domain/donation/entities/donation'
 
 export interface AddDonationRepository {
   add(donation: Donation): Promise<string>

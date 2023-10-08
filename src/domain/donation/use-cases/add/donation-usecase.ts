@@ -1,9 +1,9 @@
 import { BaseUseCase } from '@main/base/base-use-case'
-import { DonationRequest } from './models/donation-request'
-import { DonationResponse } from './models/donation-response'
 import { inject } from 'tsyringe'
 import { tokens } from '@main/di/tokens'
-import { AddDonationRepository } from './infra/interfaces/add-donation-repository'
+import { AddDonationRepository } from './add-donation-repository'
+import { DonationRequest } from './donation-request'
+import { DonationResponse } from './donation-response'
 
 export class DonationUseCase extends BaseUseCase<DonationRequest, DonationResponse | undefined> {
   constructor(

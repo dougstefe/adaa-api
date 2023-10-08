@@ -3,10 +3,10 @@ import { BaseController } from '@main/base/base-controller'
 import { ApiResponse } from '@main/types/api-response'
 import { inject, injectable } from 'tsyringe'
 import { ResponseError } from '@main/errors/http/response-error'
-import { LoginUseCase } from '@domain/user/login/login-usecase'
+import { LoginUseCase } from '@domain/user/use-cases/login/login-usecase'
 import { AuthorizationError } from '@main/errors/http/authorization-error'
 import { tokens } from '@main/di/tokens'
-import { LoginResponse } from '@domain/user/login/models/login-response'
+import { LoginResponse } from '@domain/user/use-cases/login/login-response'
 
 @injectable()
 export class LoginController extends BaseController<LoginResponse | Error> {
