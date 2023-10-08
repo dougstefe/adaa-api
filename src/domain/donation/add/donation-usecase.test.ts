@@ -1,4 +1,4 @@
-import { DonationUseCase } from '@domain/pet/donation/donation-usecase'
+import { DonationUseCase } from '@domain/donation/donation-usecase'
 import { DonationRequest } from './models/donation-request'
 import { AnimalType } from '@domain/shared/models/animal-type'
 import { AddDonationRepository } from './infra/interfaces/add-donation-repository'

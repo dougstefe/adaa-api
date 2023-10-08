@@ -1,5 +1,5 @@
-import { DonationUseCase } from '@domain/pet/donation/donation-usecase'
-import { DonationResponse } from '@domain/pet/donation/models/donation-response'
+import { DonationUseCase } from '@domain/donation/add/donation-usecase'
+import { DonationResponse } from '@domain/donation/add/models/donation-response'
 import { BaseController } from '@main/base/base-controller'
 import { tokens } from '@main/di/tokens'
 import { ResponseError } from '@main/errors/http/response-error'
