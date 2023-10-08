@@ -5,7 +5,7 @@ import { tokens } from '@main/di/tokens'
 import { ResponseError } from '@main/errors/http/response-error'
 import { ApiResponse } from '@main/types/api-response'
 import { inject, injectable } from 'tsyringe'
-import { Request } from 'express'
+import { Request, Response } from 'express'
 
 @injectable()
 export class DonationController extends BaseController<DonationResponse | Error> {
@@ -17,25 +17,38 @@ export class DonationController extends BaseController<DonationResponse | Error>
     super()
   }
 
-  async handleRequest(req: Request): Promise<ApiResponse<DonationResponse | Error>> {
+  async handleRequest(req: Request, res: Response): Promise<ApiResponse<DonationResponse | Error>> {
     try {
       const {
         animalType,
         color,
         datebirth,
         name,
-        observation
+        observation,
+        images
       } = req.body
+
+      const {
+        id: userId,
+        email: userEmail,
+        name: userName
+      } = res.locals.user
 
       var response = await this.donationUseCase.execute({
         animalType,
         color,
         datebirth,
         name,
-        observation
+        observation,
+        images,
+        donatedBy: {
+          id: userId,
+          email: userEmail,
+          name: userName
+        }
       })
 
-      return this.ok(response)
+      return this.created(response)
 
     }
     catch (error) {

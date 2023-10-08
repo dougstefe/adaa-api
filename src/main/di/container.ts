@@ -26,11 +26,13 @@ container.registerSingleton(tokens.UserMapper, UserMapper)
 
 import { DonationRouter } from '@presentation/routes/donation-router'
 import { DonationController } from '@presentation/controllers/donation-controller'
-import { DonationUseCase } from '@domain/pet/donation/donation-usecase'
+import { DonationUseCase } from '@domain/donation/use-cases/add/donation-usecase'
+import { DonationMongoRepository } from '@domain/donation/infra/donation-mongo-repository'
 
 container.registerSingleton(tokens.DonationRouter, DonationRouter)
 container.registerSingleton(tokens.DonationController, DonationController)
 container.registerSingleton(tokens.DonationUseCase, DonationUseCase)
+container.registerSingleton(tokens.DonationRepository, DonationMongoRepository)
 
 
 // Main

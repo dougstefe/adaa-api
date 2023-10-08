@@ -5,5 +5,11 @@ export interface Donation {
   color: string,
   datebirth: Date,
   name: string,
-  observation: string
+  observation: string,
+  donatedBy: {
+    id: string,
+    name: string,
+    email: string
+  },
+  images: string[]
 }

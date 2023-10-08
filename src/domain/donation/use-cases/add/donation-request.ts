@@ -5,5 +5,11 @@ export interface DonationRequest {
   color: string,
   datebirth: Date,
   name: string,
-  observation: string
+  observation: string,
+  donatedBy: {
+    id: string,
+    email: string,
+    name: string
+  }
+  images: string[]
 }
