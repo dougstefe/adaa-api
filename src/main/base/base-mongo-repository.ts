@@ -45,7 +45,7 @@ export abstract class BaseMongoRepository<Entity> {
       throw new Error('error_creating_record')
     }
 
-    return this.textDecoder.decode(response.insertedId.id)
+    return String(response.insertedId)
   }
 
   protected async update(id: string, entity: Partial<Entity>): Promise<WithId<Entity>> {
