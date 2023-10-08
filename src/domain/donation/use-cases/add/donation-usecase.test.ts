@@ -9,7 +9,15 @@ const makeFakeDonationRequest = (): DonationRequest => ({
   color: 'any_color',
   datebirth: new Date(2020, 1, 1),
   name: 'any_name',
-  observation: 'any_description'
+  observation: 'any_description',
+  images: [
+    'any_url'
+  ],
+  donatedBy: {
+    id: 'any_id',
+    email: 'any@email.com',
+    name: 'Any Name'
+  }
 })
 
 const makeAddDonationRepository = (): AddDonationRepository => {

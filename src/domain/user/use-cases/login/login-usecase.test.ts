@@ -11,6 +11,7 @@ const makeFakeLoginRequest = (): LoginRequest => ({
 })
 
 const makeFakeUser = (): User => ({
+  id: 'any_id',
   email: 'any_email@mail.com',
   name: 'any_name',
   birthdate: new Date(1983, 6, 10),
