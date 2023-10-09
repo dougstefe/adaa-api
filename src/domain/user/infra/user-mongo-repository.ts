@@ -21,13 +21,11 @@ export class UserMongoRepository extends BaseMongoRepository<User> implements Ge
   }
 
   async getUserByEmail(email: string): Promise<User> {
-    const record = await this.find(
+    return await this.findOne(
       {
         email
       }
     )
-
-    return this.mapper.map(record)
   }
 
 
