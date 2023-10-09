@@ -6,11 +6,16 @@ export const tokens = {
   LoginRepository: Symbol('LoginRepository'),
   UserMapper: Symbol('UserMapper'),
 
-  // Add Pet
+  // Pet
+  PetRepository: Symbol('PetRepository'),
+
   AddPetRouter: Symbol('AddPetRouter'),
   AddPetController: Symbol('AddPetController'),
   AddPetUseCase: Symbol('AddPetUseCase'),
-  PetRepository: Symbol('PetRepository'),
+
+  ListPetRouter: Symbol('ListPetRouter'),
+  ListPetController: Symbol('ListPetController'),
+  ListPetUseCase: Symbol('ListPetUseCase'),
 
   // Main
   Settings: Symbol('Settings'),

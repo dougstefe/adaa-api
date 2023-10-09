@@ -22,17 +22,26 @@ container.registerSingleton(tokens.LoginUseCase, LoginUseCase)
 container.registerSingleton(tokens.LoginRepository, UserMongoRepository)
 container.registerSingleton(tokens.UserMapper, UserMapper)
 
-// Add Pet
+// Pet
+import { PetMongoRepository } from '@domain/pet/infra/pet-mongo-repository'
+container.registerSingleton(tokens.PetRepository, PetMongoRepository)
 
 import { AddPetRouter } from '@presentation/routes/add-pet-router'
 import { AddPetController } from '@presentation/controllers/add-pet-controller'
 import { AddPetUseCase } from '@domain/pet/use-cases/add/add-pet-usecase'
-import { PetMongoRepository } from '@domain/pet/infra/pet-mongo-repository'
 
 container.registerSingleton(tokens.AddPetRouter, AddPetRouter)
 container.registerSingleton(tokens.AddPetController, AddPetController)
 container.registerSingleton(tokens.AddPetUseCase, AddPetUseCase)
-container.registerSingleton(tokens.PetRepository, PetMongoRepository)
+
+
+import { ListPetRouter } from '@presentation/routes/list-pet-router'
+import { ListPetController } from '@presentation/controllers/list-pet-controller'
+import { ListPetUseCase } from '@domain/pet/use-cases/list/list-pet-usecase'
+
+container.registerSingleton(tokens.ListPetRouter, ListPetRouter)
+container.registerSingleton(tokens.ListPetController, ListPetController)
+container.registerSingleton(tokens.ListPetUseCase, ListPetUseCase)
 
 
 // Main
