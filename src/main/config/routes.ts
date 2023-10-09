@@ -7,7 +7,8 @@ export default (app: Express): void => {
 
   const tokenRouters = [
     tokens.LoginRouter,
-    tokens.AddPetRouter
+    tokens.AddPetRouter,
+    tokens.ListPetRouter
   ]
 
   for (const token of tokenRouters) {
