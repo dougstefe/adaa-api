@@ -76,4 +76,27 @@ describe('List Pet UseCase', () => {
 
     expect(listSpyOn).toHaveBeenCalledWith(fakeRequest)
   })
+  test('Should return correct value', async () => {
+    const { sut, listRepositoryStub } = makeSut()
+    const fakeRequest = makeFakePaginationRequest()
+
+    const response = await sut.execute(fakeRequest)
+
+    const expected = {
+      data: Array(10).fill(
+        {
+          type: PetType.dog,
+          color: 'any_color',
+          datebirth: expect.any(Date),
+          name: 'any_name',
+          observation: 'any_observation',
+          images: [
+            'any_url'
+          ]
+        }
+      ),
+      total: 130
+    }
+    expect(response).toEqual(expected)
+  })
 })
