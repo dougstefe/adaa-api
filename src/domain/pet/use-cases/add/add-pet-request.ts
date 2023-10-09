@@ -1,6 +1,6 @@
-import { PetType } from '@domain/shared/models/pet-type'
+import { PetType } from '@domain/shared/types/pet-type'
 
-export interface Request {
+export interface AddPetRequest {
   type: PetType,
   color: string,
   datebirth: Date,

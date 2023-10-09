@@ -1,10 +1,10 @@
 import { AddPetUseCase } from '@domain/pet/use-cases/add/add-pet-usecase'
-import { PetType } from '@domain/shared/models/pet-type'
+import { PetType } from '@domain/shared/types/pet-type'
 import { Pet } from '@domain/pet/entities/pet'
-import { Request } from './request'
+import { AddPetRequest } from './add-pet-request'
 import { AddPetRepository } from './add-pet-repository'
 
-const makeFakePetRequest = (): Request => ({
+const makeFakePetRequest = (): AddPetRequest => ({
   type: PetType.dog,
   color: 'any_color',
   datebirth: new Date(2020, 1, 1),

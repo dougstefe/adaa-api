@@ -2,11 +2,11 @@ import { BaseUseCase } from '@main/base/base-use-case'
 import { inject, injectable } from 'tsyringe'
 import { tokens } from '@main/di/tokens'
 import { AddPetRepository } from './add-pet-repository'
-import { Request } from './request'
+import { AddPetRequest } from './add-pet-request'
 import { AddPetResponse } from './add-pet-response'
 
 @injectable()
-export class AddPetUseCase extends BaseUseCase<Request, AddPetResponse | undefined> {
+export class AddPetUseCase extends BaseUseCase<AddPetRequest, AddPetResponse | undefined> {
   constructor(
     @inject(tokens.PetRepository)
     private readonly addRepository: AddPetRepository
@@ -14,7 +14,7 @@ export class AddPetUseCase extends BaseUseCase<Request, AddPetResponse | undefin
     super()
   }
 
-  async execute(input: Request): Promise<AddPetResponse | undefined> {
+  async execute(input: AddPetRequest): Promise<AddPetResponse | undefined> {
     const {
       type,
       color,
